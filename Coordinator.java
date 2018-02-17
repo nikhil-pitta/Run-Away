@@ -16,7 +16,7 @@ public class Coordinator
 	{
 		
 		/*
-
+//hey whats up guys scarce here
 		frame = new JFrame("Drawing Panel");
 		frame.setBounds(200, 100, 1200, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
