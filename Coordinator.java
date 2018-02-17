@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 public class Coordinator
 {
+	///sdfgjsidlfjgsdlfkg
 	
 	private JFrame frame;
 	
