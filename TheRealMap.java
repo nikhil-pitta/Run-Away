@@ -132,7 +132,10 @@ public class TheRealMap extends JPanel implements KeyListener, ActionListener{
 
 		if(hit)
 		{
-			g.fillRect(-600, 600, player.width, player.height);
+			ballx = 0;
+			bally = 0;
+			
+			g.fillRect(ballx, bally, player.width, player.height);
 			hit = false;
 		}
 
@@ -191,7 +194,6 @@ public class TheRealMap extends JPanel implements KeyListener, ActionListener{
 		int code = e.getKeyCode();
 	
 		
-		collision();
 
 
 		if(code== KeyEvent.VK_RIGHT)
@@ -216,6 +218,8 @@ public class TheRealMap extends JPanel implements KeyListener, ActionListener{
 
 		}
 		
+		collision();
+		
 
 	}
 
@@ -238,7 +242,39 @@ public class TheRealMap extends JPanel implements KeyListener, ActionListener{
 			}
 		}
 		
+		for(int x = 400; x <= 600; x+= 150)
+		{
+			for(int y = 150; y <= 750; y+=200)
+			{
+				temp = new Rectangle (x, y, 50, 50);
+				
+				if((Math.abs(player.x - temp.x) * 2 < (player.width + temp.width)) && (Math.abs(player.y - temp.y) * 2 < (player.height + temp.height)))
+		         {
+					hit = true;
+		         }
+				
+			}
+		}
+		
+		for(int x = 700; x <= 900; x+= 150)
+		{
+			for(int y = 100; y <= 700; y+=200)
+			{
+				temp = new Rectangle (x, y, 50, 50);
+				
+				if((Math.abs(player.x - temp.x) * 2 < (player.width + temp.width)) && (Math.abs(player.y - temp.y) * 2 < (player.height + temp.height)))
+		         {
+					hit = true;
+		         }
+				
+			}
+		}
+		
 	}
+	
+	
+	
+	
 	
 	
 }
@@ -246,110 +282,5 @@ public class TheRealMap extends JPanel implements KeyListener, ActionListener{
 
 
 
-
-
-
-/* public class Hero extends JPanel implements KeyListener, ActionListener
-    {
-
-    	private int x, y;
-    	private int vx, vy;
-
-    	Timer t = new Timer(5, this);
-
-
-    	public Hero()
-    	{
-    		t.start();
-    		addKeyListener(this);
-    		setFocusable(true);
-    		setFocusTraversalKeysEnabled(false);
-    	}
-
-    	public void paintComponent(Graphics g)
-    	{
-    		super.paintComponent(g);
-    		Graphics2D g2 = (Graphics2D) g;
-    		g2.fill(new Ellipse2D.Double(x, y, 40, 40));
-
-    	}
-
-    	public void actionPerformed(ActionEvent arg0) 
-    	{
-    		repaint();
-
-    		x+=vx;
-    		y+=vy;
-
-    		vx = 0; 
-    		vy = 0;
-    	}
-
-    	public void up()
-    	{
-    		vy = -5;
-    		vx = 0;
-
-    	}
-
-    	public void down()
-    	{
-    		vy = 5;
-    		vx = 0;
-
-    	}
-
-    	public void right()
-    	{
-    		vy = 0;
-    		vx = 5;
-
-    	}
-
-    	public void left()
-    	{
-    		vy = 0;
-    		vx = -5;
-
-    	}
-
-
-    	public void keyPressed(KeyEvent e) 
-    	{
-    		int code = e.getKeyCode();
-
-    		if(code== KeyEvent.VK_RIGHT)
-    		{
-    			right();
-
-    		}
-    		else if(code== KeyEvent.VK_DOWN)
-    		{
-    			down();
-
-
-    		}
-    		else if(code== KeyEvent.VK_LEFT)
-    		{
-    			left();
-
-    		}
-    		else if(code== KeyEvent.VK_UP)
-    		{
-    			up();
-
-    		}
-
-    	}
-
-    	public void keyReleased(KeyEvent e) {}
-    	public void keyTyped(KeyEvent e){}
-
-
-    }
-
-
-
-}*/
 
 
